@@ -28,8 +28,8 @@ public class Main {
             subSequencesLengths[i] = 1;
 
             for (int j = 1; j < i; j++) {
-                if (isValidZigZag(sequence[j - 1], sequence[j], currentValue)) {
-                    if (subSequencesLengths[j - 1] == subSequencesLengths[j] && subSequencesLengths[i] <= subSequencesLengths[j]) {
+                if (isValidZigZag(sequence[j - 1], sequence[j], currentValue) && subSequencesLengths[i] <= subSequencesLengths[j]) {
+                    if (subSequencesLengths[j - 1] == subSequencesLengths[j]) {
                         longestZigZagSubSequence.put(subSequencesLengths[j], sequence[j]);
                         longestZigZagSubSequence.putIfAbsent(subSequencesLengths[j] + 1, sequence[i]);
                         subSequencesLengths[i] = subSequencesLengths[j] + 1;
